@@ -28,7 +28,7 @@ class UserProfileManager(BaseUserManager):
         user.is_staff = True
         user.save(using=self._db)
 
-        return user 
+        return user
 
 
 class UserProfile(AbstractBaseUser, PermissionsMixin):
@@ -41,7 +41,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELD = ['name']
+    REQUIRED_FIELDS = ['name']
 
     def get_full_name(self):
         """Retrieve full name of user"""
